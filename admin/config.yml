@@ -1,12 +1,12 @@
 backend:
   name: github
-  repo: SEU_USUARIO/SEU_REPOSITORIO
+  repo: ofelipedesign-sudo/Portfolio
   branch: main
-  base_url: https://SEU-PROJETO-DE-AUTH.vercel.app
+  base_url: https://portfolio-mu-ashy-60.vercel.app
   auth_endpoint: api/auth
 
-site_url: https://SEU-SITE.vercel.app
-display_url: https://SEU-SITE.vercel.app
+site_url: https://portfolio-mu-ashy-60.vercel.app
+display_url: https://portfolio-mu-ashy-60.vercel.app
 logo_url: /assets/img/favicon.svg
 
 media_folder: "assets/uploads"
