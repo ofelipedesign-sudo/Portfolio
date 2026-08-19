@@ -1,75 +1,86 @@
 # Felipe — Portfólio
 
-Site estático (HTML + CSS + JS puros, sem build step) para o portfólio de Felipe Costa, designer carioca ([@ofelipedesigne](https://www.instagram.com/ofelipedesigne/) · [behance.net/felipecosta83](https://www.behance.net/felipecosta83)).
+Site do portfólio de Felipe Costa, designer carioca ([@ofelipedesigne](https://www.instagram.com/ofelipedesigne/) · [behance.net/felipecosta83](https://www.behance.net/felipecosta83)). Publicado no Vercel, com painel de edição próprio (sem precisar mexer em código pra trocar textos ou subir trabalho novo).
 
-## Rodar localmente
+## Como o site é montado
 
-Qualquer servidor estático simples funciona, porque os caminhos usam raiz absoluta (`/css/...`, `/assets/...`). Exemplos:
+O HTML que o navegador vê (`index.html`, `work/*.html`) **não é editado à mão** — ele é gerado a partir dos arquivos em `content/`:
+
+```
+content/settings.json      textos gerais: topo, sobre, contato, SEO
+content/sectors.json       as "frentes" de trabalho (Key Art & Retratos, Estudos & Ilustração...)
+content/work/*.json        um arquivo por projeto (título, categoria, textos do case, mídia)
+scripts/build.js           lê tudo isso e escreve index.html + work/*.html
+```
+
+Sempre que `content/` muda, rodar:
 
 ```bash
-npx serve .
+npm run build
 ```
 
-ou, com a extensão **Live Server** do VS Code, abrindo `index.html`.
+regenera o site inteiro. O Vercel já faz isso sozinho a cada vez que algo é publicado (configurado em `vercel.json`) — então editar pelo painel (veja abaixo) é suficiente; não precisa rodar nada manualmente em produção.
 
-Não abra os arquivos direto com duplo clique (`file://`) — os caminhos absolutos quebram nesse modo.
+**Rodar localmente** (pra conferir antes de publicar): `node scripts/build.js` e depois qualquer servidor estático, ex. `npx serve .`. Não abra os arquivos com duplo clique (`file://`) — os caminhos absolutos quebram nesse modo.
 
-## Estrutura
+## Painel de edição (`/admin`)
 
+Painel visual (Decap CMS) pra editar textos e trabalhos sem tocar em código — inclui upload de imagem **e vídeo**, vertical ou horizontal. Ele funciona assim: você edita e salva no painel → a mudança vira um commit no GitHub → o Vercel detecta e republica o site sozinho, em ~1 minuto.
+
+### O que falta pra ligar (só você consegue fazer essas 4 coisas — dependem da sua conta)
+
+**1. Subir este código pro GitHub**, se ainda não fez:
+```bash
+git remote add origin https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
+git branch -M main
+git push -u origin main
 ```
-index.html                    one-page: hero, work, about, contact
-work/*.html                    13 páginas de projeto (template reutilizável, uma por peça)
-css/style.css                   sistema de design (tokens, componentes)
-js/main.js                      nav, menu mobile, reveals no scroll
-assets/img/work/*.jpg .png      imagens reais, exportadas do Behance
-assets/img/work/*.svg           placeholders (só onde não há imagem real ainda)
-assets/img/favicon.svg
-assets/img/og/og-cover.svg
-robots.txt, sitemap.xml
+(crie o repositório vazio antes em github.com/new — sem README/gitignore, pra não conflitar)
+
+**2. Criar um "GitHub OAuth App"** — é o que permite o painel logar com sua conta GitHub:
+- Acesse [github.com/settings/developers](https://github.com/settings/developers) → "New OAuth App"
+- **Application name**: `Felipe Portfolio CMS` (ou qualquer nome)
+- **Homepage URL**: a URL do seu site no Vercel (ex: `https://portfolio-mu-ashy-60.vercel.app`)
+- **Authorization callback URL**: a mesma URL + `/api/callback` (ex: `https://portfolio-mu-ashy-60.vercel.app/api/callback`)
+- Depois de criar, clique em "Generate a new client secret" e guarde os dois valores: **Client ID** e **Client Secret**
+
+**3. Adicionar essas credenciais no Vercel** (Project Settings → Environment Variables):
+- `OAUTH_CLIENT_ID` = o Client ID do passo 2
+- `OAUTH_CLIENT_SECRET` = o Client Secret do passo 2
+
+Depois de adicionar, faça um redeploy (Vercel → Deployments → ⋯ → Redeploy) pra elas passarem a valer.
+
+**4. Preencher os valores reais em `admin/config.yml`** (hoje estão com placeholder) — troque:
+```yaml
+repo: SEU_USUARIO/SEU_REPOSITORIO        # → o repositório do passo 1
+base_url: https://SEU-PROJETO...vercel.app   # → a URL do seu site no Vercel
+site_url: https://SEU-SITE.vercel.app
+display_url: https://SEU-SITE.vercel.app
 ```
+Pode me pedir pra fazer essa troca — só preciso saber o link do GitHub e a URL final do Vercel.
 
-## Estrutura de setores (frentes de trabalho)
+Depois disso, acesse `seusite.vercel.app/admin` e o botão "Entrar com o GitHub" vai funcionar.
 
-A seção Work (`index.html#work`) não é uma lista única — é organizada em **frentes**, cada uma seu próprio `<div class="sector-block" id="sector-...">` com `.sector-head` (índice, título, texto) seguido de um `.work-list` com os `.work-entry` daquela frente. Isso é proposital: como o Felipe atende qualquer nicho, novas áreas de atuação entram como um novo setor, não misturadas com as existentes.
+### Como usar o painel no dia a dia
+- **Trocar textos** (nome, frase de efeito, sobre, contato, redes sociais): coleção "Configurações do site"
+- **Adicionar um trabalho novo**: coleção "Trabalhos" → "New Trabalho" → preenche os campos e escolhe a frente (setor); o campo "Mídia" aceita imagem ou vídeo, qualquer proporção (vertical ou horizontal) — o site se ajusta sozinho, sem cortar
+- **Criar uma frente nova**: coleção "Frentes de trabalho" → adiciona um item na lista com um `id` novo (ex: `sector-branding`) — depois volte em "Trabalhos" e adicione esse mesmo `id` como opção do campo Frente (isso aqui ainda exige me pedir um ajuste rápido no `config.yml`, é a única parte que não é 100% self-service)
+- Toda alteração salva vira um commit — dá pra ver o histórico completo no GitHub a qualquer momento
 
-Setores hoje (cada peça do Behance é um projeto próprio, uma página própria — sem agrupar várias peças num só case):
+## Setores hoje
+
 1. **Key Art & Retratos** — Constantino de Constantinopla, Gêngis Khan, Carlos Magno, Pedro I do Brasil, Zumbi dos Palmares, Midas
 2. **Estudos & Ilustração** — The Mandalorian, Patolino, R2D2, ELDIVO, FIFA 22
 3. **Social & Comercial** — Brasil x Sérvia, Vitrine
-4. **Vídeo** — vazio, ver abaixo
-
-**Para adicionar um projeto a um setor que já existe:** copie um `<article class="work-entry ...">` dentro do `.work-list` daquele `.sector-block` e ajuste imagem, tags, título, descrição e link. Alterne `is-large` / `is-medium` / `is-medium is-flip` para manter o ritmo assimétrico.
-
-**Para criar um setor novo:** duplique um bloco `.sector-block` inteiro (com `id` novo), adicione um link para ele em `.sector-nav` no topo da seção, e escreva o `.sector-lede` com a voz de sempre (direta, sem "soluções criativas").
-
-**Setor Vídeo:** hoje está como estado vazio (`.work-empty`), porque ainda não há case de edição de vídeo publicado no Instagram/Behance de referência — o setor foi criado a pedido do Felipe (que confirmou editar vídeo), mas nenhum projeto foi inventado para preencher. Assim que houver um primeiro case, troque o bloco `.work-empty` por `.work-entry`(s) normais, do mesmo jeito que os outros setores.
+4. **Vídeo** — vazio de propósito, esperando o primeiro case
 
 ## Sobre as imagens
 
-A maior parte das imagens de trabalho já são os arquivos reais, exportados diretamente do Behance ([behance.net/felipecosta83](https://www.behance.net/felipecosta83)) — não são mais placeholders:
+Todas as 13 peças usam imagem real, a maioria exportada direto do Behance ([behance.net/felipecosta83](https://www.behance.net/felipecosta83)); nenhum placeholder gerado restante.
 
-| Página | Imagem |
-|---|---|
-| Constantino de Constantinopla | `retratos-epicos-constantino.jpg` |
-| Gêngis Khan | `retratos-epicos-gengis-khan.png` |
-| Carlos Magno | `retratos-epicos-carlos-magno.png` |
-| Pedro I do Brasil | `retratos-epicos-pedro-i.png` |
-| Zumbi dos Palmares | `zumbi-real.png` |
-| The Mandalorian | `cartazes-mandalorian-real.png` |
-| Patolino | `cartazes-patolino-real.jpg` |
-| R2D2 | `personagens-r2d2.png` |
-| ELDIVO | `personagens-eldivo.png` |
-| FIFA 22 | `fifa22-real.png` |
-| Midas — O Toque que Transforma | `midas-real.jpg` |
-| Brasil x Sérvia | `brasil-x-servia.jpg` |
-| Vitrine | `vitrine-real.webp` |
+**Atenção ao R2D2** (`assets/img/work/personagens-r2d2.png`): a peça no Behance traz uma marca d'água `@ursinstudios` no canto — indício de que foi construída sobre uma composição de estúdio de referência (prática comum em estudos de manipulação). Mantive porque é um estudo real e publicado por você; se preferir não exibir a marca d'água publicamente, troque o arquivo pelo painel (Trabalhos → R2D2 → Mídia) ou peça pra eu remover o card.
 
-Todas as 13 peças hoje usam imagem real — nenhum placeholder gerado restante.
-
-**Atenção ao R2D2** (`personagens-r2d2.png`): a peça no Behance traz uma marca d'água `@ursinstudios` no canto — indício de que foi construída sobre uma composição de estúdio de referência (prática comum em estudos de manipulação). Mantive a peça porque é um estudo real, publicado por você, mas se preferir não exibir a marca d'água publicamente, troque por outra versão sem ela ou remova o card do setor "Estudos & Ilustração".
-
-**Outros pontos marcados no código com `TODO(designer)`:**
-- E-mail e/ou WhatsApp de contato (seção Contato e About) — hoje os únicos canais públicos confirmados são Instagram e Behance.
-- LinkedIn e lista de ferramentas em About, se você quiser incluir.
-- Domínio real em `<link rel="canonical">`, Open Graph e `sitemap.xml` (está como placeholder `ofelipedesigne.com.br`).
-- `og-cover.svg` é SVG; para compatibilidade máxima com previews do WhatsApp/Facebook, exporte uma versão `.png` de 1200×630 a partir de uma das imagens reais e aponte `og:image`/`twitter:image` para ela (o `index.html` já usa `retratos-epicos-constantino.jpg` como fallback).
+## Pendências menores
+- E-mail e/ou WhatsApp de contato — hoje os únicos canais públicos confirmados são Instagram e Behance (editável em Configurações → Contato assim que você tiver esses dados)
+- `content/settings.json` → `meta.siteUrl` está com o domínio placeholder `ofelipedesigne.com.br` — atualize para a URL real do Vercel (ou domínio próprio, se comprar um depois)
+- `assets/img/og/og-cover.svg` é SVG; pra preview funcionar 100% no WhatsApp, o ideal é um `.png` de 1200×630 — hoje o site já usa a primeira foto do Work como fallback, o que funciona bem na prática
