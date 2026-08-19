@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="og-g" cx="600" cy="180" r="560" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#e3a63a" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#e3a63a" stop-opacity="0.3"/>
+      <stop offset="75%" stop-color="#c4501f" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#0b0a08" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#0b0a08"/>
+  <rect width="1200" height="630" fill="url(#og-g)"/>
+  <text x="80" y="330" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="150" letter-spacing="-2" fill="#f2ecdf">FELIPE</text>
+  <text x="80" y="400" font-family="'Courier New', monospace" font-weight="700" font-size="28" letter-spacing="4" fill="#e3a63a">DESIGNER — KEY ART &amp; DIREÇÃO DE ARTE</text>
+  <text x="80" y="440" font-family="'Courier New', monospace" font-size="22" letter-spacing="2" fill="#9a9182">RIO DE JANEIRO, BRASIL</text>
+  <rect x="0.5" y="0.5" width="1199" height="629" fill="none" stroke="#2a2519" stroke-width="1"/>
+</svg>

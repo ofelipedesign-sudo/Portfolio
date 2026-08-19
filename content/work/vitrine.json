@@ -1,0 +1,22 @@
+{
+  "title": "Vitrine",
+  "sector": "sector-social",
+  "order": 1,
+  "layout": "medium",
+  "category": "Social Media · Comunicação Comercial",
+  "year": "2025",
+  "tools": "",
+  "role": "Design e diagramação para redes sociais",
+  "media": {
+    "type": "image",
+    "src": "/assets/img/work/vitrine-real.webp",
+    "poster": "",
+    "alt": "Peça de vitrine de preços com iPhones seminovos, do 8 Plus ao 14 Pro Max"
+  },
+  "cardDesc": "Lista de iPhones seminovos e preços, feita para giro rápido em redes sociais.",
+  "contexto": "Uma vitrine de preços para redes sociais: lista de iPhones seminovos, do 8 Plus ao 14 Pro Max, com valores em formato de post.",
+  "desafio": "Esse tipo de peça tem prioridades diferentes das autorais: prazo curto, hierarquia de informação (produto, preço) e leitura instantânea dentro do feed — sem virar uma tabela sem graça.",
+  "solucao": "Gradiente azul e um iPhone em still de produto ancoram a composição; cada modelo vira uma linha com contorno próprio, nome à esquerda e preço à direita — fácil de escanear mesmo em miniatura, rolando o feed.",
+  "detalhes": "Peça de aplicação comercial, produzida para giro rápido em redes sociais.",
+  "nota": "Modelos e preços pertencem ao respectivo lojista e aparecem apenas como parte do trabalho de comunicação visual."
+}

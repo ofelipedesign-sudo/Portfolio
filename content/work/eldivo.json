@@ -1,0 +1,22 @@
+{
+  "title": "ELDIVO",
+  "sector": "sector-estudos",
+  "order": 3,
+  "layout": "large",
+  "category": "Ilustração Vetorial",
+  "year": "2022",
+  "tools": "Photoshop",
+  "role": "",
+  "media": {
+    "type": "image",
+    "src": "/assets/img/work/personagens-eldivo.png",
+    "poster": "",
+    "alt": "Personagem dos Simpsons em vetor, vestido de torcedor da seleção brasileira"
+  },
+  "cardDesc": "Um personagem dos Simpsons redesenhado como torcedor da seleção brasileira.",
+  "contexto": "Um personagem dos Simpsons redesenhado em vetor como torcedor da seleção brasileira — nas palavras do Felipe, \"estudo de vetor: ELDIVO dos Simpsons\".",
+  "desafio": "Redesenhar um traço de animação americano em vetor plano e aproximá-lo de um repertório local, sem perder a expressão do personagem original.",
+  "solucao": "O traço passa para vetor chapado e o personagem ganha a camisa amarela da seleção brasileira, com um brilho verde-água ao redor do braço pra dar energia de comemoração de gol.",
+  "detalhes": "Feito no Photoshop, no mesmo lote de estudos de setembro de 2022 que incluiu [R2D2](/work/r2d2.html), [The Mandalorian](/work/mandalorian.html) e [Patolino](/work/patolino.html).",
+  "nota": "Estudo e prática pessoal. Personagem pertence à 20th Television/Disney; nenhum vínculo comercial ou institucional é implicado."
+}

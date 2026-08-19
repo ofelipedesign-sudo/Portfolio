@@ -1,0 +1,159 @@
+backend:
+  name: github
+  repo: SEU_USUARIO/SEU_REPOSITORIO
+  branch: main
+  base_url: https://SEU-PROJETO-DE-AUTH.vercel.app
+  auth_endpoint: api/auth
+
+site_url: https://SEU-SITE.vercel.app
+display_url: https://SEU-SITE.vercel.app
+logo_url: /assets/img/favicon.svg
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+locale: "pt"
+
+collections:
+  - name: "work"
+    label: "Trabalhos"
+    label_singular: "Trabalho"
+    folder: "content/work"
+    create: true
+    delete: true
+    identifier_field: title
+    slug: "{{slug}}"
+    summary: "{{title}} — {{sector}}"
+    sortable_fields: ["sector", "order", "year"]
+    fields:
+      - { label: "Título do projeto", name: "title", widget: "string" }
+      - label: "Frente (setor)"
+        name: "sector"
+        widget: "select"
+        options:
+          - { label: "Key Art & Retratos", value: "sector-key-art" }
+          - { label: "Estudos & Ilustração", value: "sector-estudos" }
+          - { label: "Social & Comercial", value: "sector-social" }
+          - { label: "Vídeo", value: "sector-video" }
+        hint: "Se você criar uma frente nova em 'Frentes de trabalho', volte aqui e adicione o mesmo valor como opção (peça pro Claude ajustar se preferir)."
+      - { label: "Ordem dentro da frente", name: "order", widget: "number", value_type: "int", default: 0, hint: "0 = primeiro da fila, 1 = segundo, e assim por diante." }
+      - label: "Tamanho do card na Home"
+        name: "layout"
+        widget: "select"
+        default: "medium"
+        options:
+          - { label: "Grande", value: "large" }
+          - { label: "Médio", value: "medium" }
+          - { label: "Médio (invertido — imagem do outro lado)", value: "medium-flip" }
+      - { label: "Categoria (ex: Key Art · Retrato)", name: "category", widget: "string", hint: "Aparece no card e na página do projeto. Use · para separar termos." }
+      - { label: "Ano", name: "year", widget: "string" }
+      - { label: "Ferramentas (opcional)", name: "tools", widget: "string", required: false }
+      - { label: "Papel (opcional, use só se 'Ferramentas' estiver vazio)", name: "role", widget: "string", required: false }
+      - label: "Mídia do projeto"
+        name: "media"
+        widget: "object"
+        fields:
+          - label: "Tipo"
+            name: "type"
+            widget: "select"
+            default: "image"
+            options:
+              - { label: "Imagem", value: "image" }
+              - { label: "Vídeo", value: "video" }
+          - { label: "Arquivo (imagem ou vídeo, vertical ou horizontal)", name: "src", widget: "file" }
+          - { label: "Capa do vídeo (poster)", name: "poster", widget: "image", required: false, hint: "Preencha só se o Tipo acima for Vídeo — é a imagem mostrada antes do play, e usada como miniatura na Home." }
+          - { label: "Texto alternativo (descreva a imagem/vídeo para acessibilidade)", name: "alt", widget: "string" }
+      - { label: "Descrição curta (aparece no card da Home)", name: "cardDesc", widget: "text" }
+      - { label: "Contexto", name: "contexto", widget: "markdown", buttons: ["bold", "italic", "link"], editor_components: [] }
+      - { label: "Desafio", name: "desafio", widget: "markdown", buttons: ["bold", "italic", "link"], editor_components: [] }
+      - { label: "Solução", name: "solucao", widget: "markdown", buttons: ["bold", "italic", "link"], editor_components: [] }
+      - { label: "Detalhes visuais", name: "detalhes", widget: "markdown", buttons: ["bold", "italic", "link"], editor_components: [] }
+      - { label: "Nota (direitos autorais, disclaimers)", name: "nota", widget: "text" }
+
+  - name: "sectors"
+    label: "Frentes de trabalho"
+    files:
+      - name: "lista"
+        label: "Lista de frentes"
+        file: "content/sectors.json"
+        fields:
+          - label: "Frentes"
+            name: "sectors"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "ID (não repetir, ex: sector-video)", name: "id", widget: "string" }
+              - { label: "Rótulo do índice (ex: Frente 01)", name: "indexLabel", widget: "string" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Texto de abertura", name: "lede", widget: "text" }
+              - { label: "Ordem", name: "order", widget: "number", value_type: "int" }
+              - { label: "Selo do estado vazio (só se não tiver nenhum trabalho ainda)", name: "emptyTag", widget: "string", required: false }
+              - { label: "Texto do estado vazio", name: "emptyText", widget: "text", required: false }
+
+  - name: "settings"
+    label: "Configurações do site"
+    files:
+      - name: "geral"
+        label: "Textos gerais (topo, sobre, contato, SEO)"
+        file: "content/settings.json"
+        fields:
+          - label: "SEO"
+            name: "meta"
+            widget: "object"
+            fields:
+              - { label: "Título da aba do navegador", name: "title", widget: "string" }
+              - { label: "Descrição (aparece no Google e ao compartilhar)", name: "description", widget: "text" }
+              - { label: "URL do site (sem barra no final)", name: "siteUrl", widget: "string" }
+          - label: "Redes sociais"
+            name: "social"
+            widget: "object"
+            fields:
+              - { label: "Link do Instagram", name: "instagram", widget: "string" }
+              - { label: "@ do Instagram", name: "instagramHandle", widget: "string" }
+              - { label: "Link do Behance", name: "behance", widget: "string" }
+              - { label: "Usuário do Behance", name: "behanceHandle", widget: "string" }
+          - label: "Topo (Hero)"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Linha pequena acima do nome", name: "kicker", widget: "text" }
+              - { label: "Nome", name: "name", widget: "string" }
+              - { label: "Cargos / especialidades (um por linha)", name: "roles", widget: "list" }
+              - { label: "Frase de efeito", name: "statement", widget: "text", hint: "Use *palavra* para deixar em itálico." }
+          - label: "Seção Work"
+            name: "work"
+            widget: "object"
+            fields:
+              - { label: "Título (aceita <br> para quebrar linha)", name: "title", widget: "string" }
+              - { label: "Texto de abertura", name: "lede", widget: "text" }
+          - label: "Seção Sobre"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Título (aceita <br> para quebrar linha)", name: "title", widget: "string" }
+              - label: "Parágrafos"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Parágrafo", name: "paragraph", widget: "text" }
+              - label: "Fatos (Baseado em, Atuação, Formação...)"
+                name: "facts"
+                widget: "list"
+                summary: "{{fields.label}}: {{fields.value}}"
+                fields:
+                  - { label: "Rótulo", name: "label", widget: "string" }
+                  - { label: "Valor", name: "value", widget: "string" }
+                  - { label: "Link (opcional)", name: "link", widget: "string", required: false }
+          - label: "Seção Contato"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Título / chamada (aceita <br>)", name: "title", widget: "string" }
+              - { label: "Link do título", name: "link", widget: "string" }
+              - label: "Itens de contato"
+                name: "items"
+                widget: "list"
+                summary: "{{fields.label}}: {{fields.value}}"
+                fields:
+                  - { label: "Rótulo", name: "label", widget: "string" }
+                  - { label: "Valor", name: "value", widget: "string" }
+                  - { label: "Link (opcional)", name: "link", widget: "string", required: false }

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <radialGradient id="fg" cx="32" cy="20" r="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#e3a63a" stop-opacity="1"/>
+      <stop offset="55%" stop-color="#e3a63a" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#0b0a08" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="64" height="64" rx="8" fill="#0b0a08"/>
+  <rect width="64" height="64" rx="8" fill="url(#fg)"/>
+  <text x="32" y="43" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="34" fill="#f2ecdf">F</text>
+</svg>

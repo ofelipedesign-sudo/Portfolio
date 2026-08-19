@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "title": "Felipe — Designer, Key Art & Vídeo · Rio de Janeiro",
+    "description": "Portfólio de Felipe, designer carioca sem nicho fixo — key art, cartazes, comunicação para redes sociais e edição de vídeo, sempre com composição e luz como protagonistas.",
+    "siteUrl": "https://ofelipedesigne.com.br"
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/ofelipedesigne/",
+    "instagramHandle": "@ofelipedesigne",
+    "behance": "https://www.behance.net/felipecosta83",
+    "behanceHandle": "felipecosta83"
+  },
+  "hero": {
+    "kicker": "Rio de Janeiro, RJ — graduando em Design, com mais de 5 anos colocando a mão na massa antes disso.",
+    "name": "FELIPE",
+    "roles": ["Designer", "Key Art & Direção de Arte", "Comunicação Visual", "Edição de Vídeo"],
+    "statement": "Pego uma referência qualquer — uma estátua, um personagem, uma vitrine, um vídeo — e acendo uma luz nela até virar *lenda*. Não tenho nicho fixo: o que muda é o meio."
+  },
+  "work": {
+    "title": "Uma curadoria,<br>não um feed.",
+    "lede": "Não trabalho fechado num nicho só. O jeito de pensar é sempre o mesmo — pegar uma referência e tratá-la como se estivesse prestes a virar ícone — mas o meio muda. Hoje isso se organiza em quatro frentes."
+  },
+  "about": {
+    "title": "Quem faz<br>a luz acender.",
+    "paragraphs": [
+      "Sou o Felipe — designer carioca, atualmente cursando Design, com mais de 5 anos colocando a mão na massa antes disso. Aprendi fazendo: cartaz por cartaz, brief por brief, até a luz cair no lugar certo.",
+      "Não tenho um nicho fixo — atendo qualquer área que precise de imagem bem pensada. Hoje isso se organiza em três frentes: peças autorais (retratos, mitologia, cultura pop, tratadas como se cada personagem estivesse prestes a virar lenda), comunicação comercial de giro rápido para redes sociais, e edição de vídeo, a frente mais recente.",
+      "O que atravessa todas elas: composição, luz e ritmo como protagonistas — nunca decoração."
+    ],
+    "facts": [
+      { "label": "Baseado em", "value": "Rio de Janeiro, RJ — Brasil", "link": "" },
+      { "label": "Atuação", "value": "Key art, cartazes, social media e edição de vídeo", "link": "" },
+      { "label": "Formação", "value": "Graduando em Design", "link": "" },
+      { "label": "Prática", "value": "+5 anos", "link": "" },
+      { "label": "Instagram", "value": "@ofelipedesigne ↗", "link": "https://www.instagram.com/ofelipedesigne/" },
+      { "label": "Behance", "value": "felipecosta83 ↗", "link": "https://www.behance.net/felipecosta83" }
+    ]
+  },
+  "contact": {
+    "title": "Bora criar<br>alguma coisa? ↗",
+    "link": "https://www.instagram.com/ofelipedesigne/",
+    "items": [
+      { "label": "Instagram", "value": "@ofelipedesigne", "link": "https://www.instagram.com/ofelipedesigne/" },
+      { "label": "Behance", "value": "felipecosta83", "link": "https://www.behance.net/felipecosta83" },
+      { "label": "Localização", "value": "Rio de Janeiro, RJ", "link": "" }
+    ]
+  }
+}

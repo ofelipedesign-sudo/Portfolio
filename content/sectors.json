@@ -1,0 +1,40 @@
+{
+  "sectors": [
+    {
+      "id": "sector-key-art",
+      "indexLabel": "Frente 01",
+      "title": "Key Art & Retratos",
+      "lede": "Onde tudo começou: transformar uma referência — mito, personagem, figura histórica — em algo que parece ter acabado de virar lenda.",
+      "order": 0,
+      "emptyTag": "",
+      "emptyText": ""
+    },
+    {
+      "id": "sector-estudos",
+      "indexLabel": "Frente 02",
+      "title": "Estudos & Ilustração",
+      "lede": "Exercícios técnicos com personagens e referências já conhecidas — manipulação de imagem, luz de estúdio e ilustração vetorial.",
+      "order": 1,
+      "emptyTag": "",
+      "emptyText": ""
+    },
+    {
+      "id": "sector-social",
+      "indexLabel": "Frente 03",
+      "title": "Social & Comercial",
+      "lede": "Comunicação de giro rápido — esporte e varejo — onde o prazo é curto e a leitura precisa ser imediata.",
+      "order": 2,
+      "emptyTag": "",
+      "emptyText": ""
+    },
+    {
+      "id": "sector-video",
+      "indexLabel": "Frente 04",
+      "title": "Vídeo",
+      "lede": "A frente mais nova. Edição de vídeo com o mesmo olhar de composição e ritmo das outras frentes.",
+      "order": 3,
+      "emptyTag": "Em estruturação",
+      "emptyText": "Esse setor ainda não tem case publicado aqui — mas já está rodando. Se você tem um projeto de vídeo em mente, pode ser o primeiro a entrar nessa frente."
+    }
+  ]
+}

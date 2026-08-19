@@ -1,0 +1,22 @@
+{
+  "title": "The Mandalorian",
+  "sector": "sector-estudos",
+  "order": 0,
+  "layout": "large",
+  "category": "Manipulação de Imagem",
+  "year": "2022",
+  "tools": "Photoshop",
+  "role": "",
+  "media": {
+    "type": "image",
+    "src": "/assets/img/work/cartazes-mandalorian-real.png",
+    "poster": "",
+    "alt": "Cartaz autoral do Mandalorian caminhando contra um sol estourado no deserto"
+  },
+  "cardDesc": "\"Planos geográficos e iluminação\" — um cartaz autoral a partir de Star Wars.",
+  "contexto": "Um cartaz autoral de **The Mandalorian**, descrito pelo próprio Felipe como \"estudo de manipulação de imagem com planos geográficos e iluminação\".",
+  "desafio": "Trabalhar com um personagem já extremamente conhecido e, ainda assim, produzir uma composição que pareça autoral — não apenas uma cópia do pôster oficial.",
+  "solucao": "O personagem é recolocado contra um sol estourado no deserto, com naves reposicionadas em diferentes planos de profundidade para reforçar a leitura de cena — o \"plano geográfico\" que dá nome ao estudo.",
+  "detalhes": "Feito no Photoshop, no mesmo lote de estudos de setembro de 2022 que incluiu [Patolino](/work/patolino.html), [R2D2](/work/r2d2.html) e [ELDIVO](/work/eldivo.html).",
+  "nota": "Trabalho de estudo e prática pessoal, feito por admiração à franquia original. Personagens e marcas pertencem aos respectivos detentores; nenhum vínculo comercial ou institucional é implicado."
+}

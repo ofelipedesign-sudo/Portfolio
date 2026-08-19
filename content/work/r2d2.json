@@ -1,0 +1,22 @@
+{
+  "title": "R2D2",
+  "sector": "sector-estudos",
+  "order": 2,
+  "layout": "medium-flip",
+  "category": "Manipulação de Imagem",
+  "year": "2022",
+  "tools": "",
+  "role": "Composição e iluminação sobre estúdio de referência",
+  "media": {
+    "type": "image",
+    "src": "/assets/img/work/personagens-r2d2.png",
+    "poster": "",
+    "alt": "R2D2 de Star Wars diante de uma cidade futurista em luz azul"
+  },
+  "cardDesc": "Um droid de Star Wars diante de uma cidade futurista em luz ciano.",
+  "contexto": "Um estudo de manipulação de imagem com R2D2, de Star Wars — construir uma cena e uma atmosfera inteiras em torno de um personagem já pronto.",
+  "desafio": "Treinar composição e luz de cena partindo de uma referência de estúdio, antes de migrar pra peças inteiramente autorais como as da série [Retratos Épicos](/work/constantino-de-constantinopla.html).",
+  "solucao": "O droid é posicionado contra uma cidade futurista banhada em luz ciano, com feixes de holofote formando uma seta que guia o olhar até o personagem.",
+  "detalhes": "A peça foi construída em cima de uma composição de estúdio de referência (crédito visível na própria imagem) — prática comum em estudos de manipulação, pra treinar luz e profundidade sem começar do zero.",
+  "nota": "Estudo e prática pessoal. Personagem e marca pertencem à Lucasfilm/Disney; nenhum vínculo comercial ou institucional é implicado."
+}
